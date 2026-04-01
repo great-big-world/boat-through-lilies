@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "boat-through-lilies",
+  "version": "${version}",
+
+  "name": "boat-through-lilies",
+  "description": "Boats no longer collide with Lily Pads",
+  "authors": [],
+  "contact": {},
+
+  "license": "All-Rights-Reserved",
+  "icon": "assets/boat-through-lilies/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.creoii.boatthroughlilies.BoatThroughLilies"]
+  },
+
+  "mixins": [
+    "boat-through-lilies.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": {
+        "id": "great_big_world",
+        "name": "Great Big World",
+        "description": ""
+      }
+    }
+  }
+}
