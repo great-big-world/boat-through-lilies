@@ -10,7 +10,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(WaterlilyBlock.class)
 public abstract class WaterlilyBlockMixin extends BushBlock {
@@ -19,13 +21,15 @@ public abstract class WaterlilyBlockMixin extends BushBlock {
     }
 
     @Override
-    protected VoxelShape getCollisionShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+    @SuppressWarnings("deprecation")
+    public @NotNull VoxelShape getCollisionShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
         if (collisionContext instanceof EntityCollisionContext entityCollisionContext && entityCollisionContext.getEntity() != null && isBoat(entityCollisionContext.getEntity().getType())) {
             return Shapes.empty();
         }
         return super.getCollisionShape(blockState, blockGetter, blockPos, collisionContext);
     }
 
+    @Unique
     private static boolean isBoat(EntityType<?> entityType) {
         return entityType == EntityType.BOAT || entityType == EntityType.CHEST_BOAT;
     }
