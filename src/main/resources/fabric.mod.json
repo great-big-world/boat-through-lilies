@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "id": "boat-through-lilies",
+  "id": "boat_through_lilies",
   "version": "${version}",
 
-  "name": "boat-through-lilies",
+  "name": "Boat Through Lilies",
   "description": "Boats no longer collide with Lily Pads",
   "authors": [],
   "contact": {},
 
   "license": "All-Rights-Reserved",
-  "icon": "assets/boat-through-lilies/icon.png",
+  "icon": "assets/boat_through_lilies/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -17,7 +17,7 @@
   },
 
   "mixins": [
-    "boat-through-lilies.mixins.json"
+    "boat_through_lilies.mixins.json"
   ],
 
   "depends": {
